@@ -17,6 +17,8 @@ export const createUser = functions.auth.user().onCreate(async (data) => {
     name: data.displayName ?? '未設定',
     profile: '',
     thubmnailURL: null,
+    followCount: 0,
+    followerCount: 0,
     createdAt: FieldValue.serverTimestamp(),
     updatedAt: FieldValue.serverTimestamp(),
   }
