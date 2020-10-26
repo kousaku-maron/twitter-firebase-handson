@@ -27,7 +27,7 @@ export const createFollowTweetByCreateTweet = functions.firestore
 
     const followerUserChunk = chunk(followerUsers, 500)
 
-    const task = followerUserChunk.map(async (followerUsers) => {
+    for (const followerUsers of followerUserChunk) {
       const batch = db.batch()
       followerUsers.forEach((followerUser) => {
         const followTweetsRef = followerUser.ref.collection('followTweets')
@@ -39,9 +39,7 @@ export const createFollowTweetByCreateTweet = functions.firestore
         })
       })
       await batch.commit()
-    })
-
-    await Promise.all(task)
+    }
 
     return { message: 'follow tweets is created successfully.' }
   })

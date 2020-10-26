@@ -29,16 +29,14 @@ export const deleteFollowTweetByDeleteFollowUser = functions.firestore
 
     const tweetChunk = chunk(tweets, 500)
 
-    const task = tweetChunk.map(async (tweets) => {
+    for (const tweets of tweetChunk) {
       const batch = db.batch()
       tweets.forEach((tweet) => {
         const followTweetRef = followTweetsRef.doc(tweet.id)
         batch.delete(followTweetRef)
       })
       await batch.commit()
-    })
-
-    await Promise.all(task)
+    }
 
     return { message: 'follow tweets is deleted successfully.' }
   })
