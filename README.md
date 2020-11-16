@@ -15,6 +15,29 @@ yarn version 1.17.3
 firebase-tools 8.7.0
 ```
 
+# 環境変数の設定
+
+ `functions`に環境変数を設定します。
+
+下記コマンドで、`functions`に環境変数を設定することができます。
+
+```
+firebase functions:config:set someservice.key="THE API KEY"
+```
+
+ローカルで動かす場合`.runtimeconfig.json`に環境変数を設定してください。
+
+`functions/.runtimeconfig.json`
+
+```
+{
+  "algolia": {
+    "application_id": "<ALGOLIA_APPLICATION_ID>",
+    "api_key": "<ALGOLIA_API_KEY>"
+  }
+}
+```
+
 # Firebaseエミュレーターで起動する
 
 ### 認証情報の設定

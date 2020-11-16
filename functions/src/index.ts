@@ -13,3 +13,5 @@ export { decrementFollowerCount } from './triggers/user/decrementFollowerCount'
 export { createFollowTweetByCreateTweet } from './triggers/followTweet/createByCreateTweet'
 export { createFollowTweetByCreateFollowUser } from './triggers/followTweet/createByCreateFollowUser'
 export { deleteFollowTweetByDeleteFollowUser } from './triggers/followTweet/deleteByDeleteFollowUser'
+
+export { createTweetIndexByCreateTweet } from './triggers/tweetIndex/createByCreateTweet'
