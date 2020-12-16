@@ -13,6 +13,12 @@ export type Tweet = {
       ref: firestore.DocumentReference
     }
   } | null
+  reply: {
+    ref: firestore.DocumentReference
+    writer: {
+      ref: firestore.DocumentReference
+    }
+  } | null
   createdAt: Date
   updatedAt: Date
 }
@@ -24,6 +30,7 @@ export const buildTweet = (id: string, data: firestore.DocumentData) => {
     fileURLs: data.fileURLs,
     writer: data.writer,
     origin: data.origin,
+    reply: data.reply,
     createdAt: data.createdAt.toDate(),
     updatedAt: data.updatedAt.toDate(),
   }

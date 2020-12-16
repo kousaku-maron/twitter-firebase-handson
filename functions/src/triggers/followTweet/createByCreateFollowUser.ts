@@ -39,6 +39,7 @@ export const createFollowTweetByCreateFollowUser = functions.firestore
           ref: tweetRef,
           writer: tweet.writer,
           origin: tweet.origin,
+          reply: tweet.reply,
           createdAt: tweet.createdAt,
           updatedAt: tweet.updatedAt,
         })
